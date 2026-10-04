@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ServeRest — Acesso</title>
+
+  <meta
+    name="description"
+    content="Login e cadastro no ServeRest."
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <main class="auth-page">
+
+    <!-- PAINEL EDITORIAL -->
+    <section class="editorial-panel">
+
+      <div class="brand">
+        <span class="brand-mark">SR</span>
+        <span class="brand-name">serverest</span>
+      </div>
+
+      <div class="editorial-content">
+
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          API TEST ENVIRONMENT
+        </div>
+
+        <h1>
+          Teste.
+          <em>Valide.</em>
+          Construa.
+        </h1>
+
+        <p>
+          Uma interface simples para acessar o ambiente de testes
+          do ServeRest e trabalhar com APIs de forma prática.
+        </p>
+
+      </div>
+
+      <div class="report-card">
+
+        <div class="report-header">
+          <span>TEST REPORT</span>
+          <span>v2.4.1</span>
+        </div>
+
+        <div class="report-line">
+          <span>AUTHENTICATION</span>
+          <strong>PASS</strong>
+        </div>
+
+        <div class="report-line">
+          <span>API STATUS</span>
+          <strong>ONLINE</strong>
+        </div>
+
+        <div class="report-line">
+          <span>ENVIRONMENT</span>
+          <strong>DEV</strong>
+        </div>
+
+        <div class="report-footer">
+          <span>BUILD: 042</span>
+          <span>● READY</span>
+        </div>
+
+      </div>
+
+      <div class="editorial-footer">
+        <span>ServeRest</span>
+        <span>01 / 02</span>
+      </div>
+
+    </section>
+
+
+    <!-- FORMULÁRIO -->
+    <section class="form-panel">
+
+      <div class="form-container">
+
+        <div class="mobile-brand">
+          <span class="brand-mark">SR</span>
+          <span class="brand-name">serverest</span>
+        </div>
+
+        <div class="form-heading">
+
+          <span class="form-kicker" id="formKicker">
+            WELCOME BACK
+          </span>
+
+          <h2 id="formTitle">
+            Entre na sua conta.
+          </h2>
+
+          <p id="formDescription">
+            Acesse o ambiente de testes do ServeRest.
+          </p>
+
+        </div>
+
+
+        <!-- TABS -->
+        <div class="auth-tabs">
+
+          <button
+            class="tab active"
+            type="button"
+            data-mode="login"
+          >
+            Login
+          </button>
+
+          <button
+            class="tab"
+            type="button"
+            data-mode="register"
+          >
+            Cadastro
+          </button>
+
+        </div>
+
+
+        <!-- ALERT -->
+        <div
+          class="alert"
+          id="alert"
+          role="alert"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- FORM -->
+        <form id="authForm" novalidate>
+
+          <!-- NOME -->
+          <div
+            class="field"
+            id="nameField"
+            hidden
+          >
+            <label for="name">
+              Nome
+            </label>
+
+            <div class="input-wrapper">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                placeholder="Seu nome"
+              />
+            </div>
+
+            <span class="field-error" id="nameError"></span>
+          </div>
+
+
+          <!-- EMAIL -->
+          <div class="field">
+
+            <label for="email">
+              E-mail
+            </label>
+
+            <div class="input-wrapper">
+
+              <span class="input-prefix">@</span>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                placeholder="voce@exemplo.com"
+                required
+              />
+
+            </div>
+
+            <span class="field-error" id="emailError"></span>
+
+          </div>
+
+
+          <!-- PASSWORD -->
+          <div class="field">
+
+            <div class="field-label-row">
+
+              <label for="password">
+                Senha
+              </label>
+
+              <span
+                class="password-hint"
+                id="passwordHint"
+              >
+                MÍN. 6 CARACTERES
+              </span>
+
+            </div>
+
+            <div class="input-wrapper">
+
+              <input
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="current-password"
+                placeholder="••••••••"
+                required
+              />
+
+              <button
+                type="button"
+                class="password-toggle"
+                id="passwordToggle"
+                aria-label="Mostrar senha"
+              >
+                <span id="eyeIcon">SHOW</span>
+              </button>
+
+            </div>
+
+            <span class="field-error" id="passwordError"></span>
+
+          </div>
+
+
+          <!-- ADMIN -->
+          <div
+            class="field"
+            id="adminField"
+            hidden
+          >
+
+            <label for="administrador">
+              Perfil
+            </label>
+
+            <div class="select-wrapper">
+
+              <select
+                id="administrador"
+                name="administrador"
+              >
+                <option value="false">
+                  Usuário comum
+                </option>
+
+                <option value="true">
+                  Administrador
+                </option>
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-options">
+
+            <label
+              class="checkbox"
+              id="rememberWrapper"
+            >
+              <input
+                type="checkbox"
+                id="remember"
+              />
+
+              <span class="checkbox-box"></span>
+
+              <span>
+                Lembrar acesso
+              </span>
+            </label>
+
+            <span
+              class="technical-label"
+              id="technicalLabel"
+            >
+              AUTH / LOGIN
+            </span>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="submit-button"
+            id="submitButton"
+          >
+
+            <span id="submitText">
+              Entrar
+            </span>
+
+            <span
+              class="button-loader"
+              id="buttonLoader"
+            ></span>
+
+            <span class="button-arrow">
+              →
+            </span>
+
+          </button>
+
+        </form>
+
+
+        <div class="form-footer">
+
+          <span>
+            SERVEREST API
+          </span>
+
+          <span class="footer-status">
+            <i></i>
+            OPERATIONAL
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
